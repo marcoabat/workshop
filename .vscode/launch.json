@@ -21,5 +21,15 @@
 				"any"
 			]
 		},
+		{
+			"name": "Meals",
+			"request": "launch",
+			"type": "dart",
+			"program": "meals/lib/main.dart",
+			"args": [
+				"--web-hostname",
+				"any"
+			]
+		},
 	]
 }
