@@ -2,14 +2,24 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Flutter",
+			"name": "Introduction",
 			"request": "launch",
 			"type": "dart",
-			"program": "lib/main.dart",
+			"program": "introduction/lib/main.dart",
 			"args": [
 				"--web-hostname",
 				"any"
 			]
-		}
+		},
+		{
+			"name": "Notes",
+			"request": "launch",
+			"type": "dart",
+			"program": "notes/lib/main.dart",
+			"args": [
+				"--web-hostname",
+				"any"
+			]
+		},
 	]
 }
