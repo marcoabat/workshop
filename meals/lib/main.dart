@@ -8,11 +8,13 @@ import './screens/filters_screen.dart';
 import './screens/categories_screen.dart';
 import './models/meal.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -22,24 +24,24 @@ class _MyAppState extends State<MyApp> {
     'vegan': false,
     'vegetarian': false,
   };
-  List<Meal> _availableMeals = DUMMY_MEALS;
-  List<Meal> _favoriteMeals = [];
+  List<Meal> _availableMeals = dummyMeals;
+  final List<Meal> _favoriteMeals = [];
 
   void _setFilters(Map<String, bool> filterData) {
     setState(() {
       _filters = filterData;
 
-      _availableMeals = DUMMY_MEALS.where((meal) {
-        if (_filters['gluten'] && !meal.isGlutenFree) {
+      _availableMeals = dummyMeals.where((meal) {
+        if (_filters['gluten']! && !meal.isGlutenFree) {
           return false;
         }
-        if (_filters['lactose'] && !meal.isLactoseFree) {
+        if (_filters['lactose']! && !meal.isLactoseFree) {
           return false;
         }
-        if (_filters['vegan'] && !meal.isVegan) {
+        if (_filters['vegan']! && !meal.isVegan) {
           return false;
         }
-        if (_filters['vegetarian'] && !meal.isVegetarian) {
+        if (_filters['vegetarian']! && !meal.isVegetarian) {
           return false;
         }
         return true;
@@ -57,7 +59,7 @@ class _MyAppState extends State<MyApp> {
     } else {
       setState(() {
         _favoriteMeals.add(
-          DUMMY_MEALS.firstWhere((meal) => meal.id == mealId),
+          dummyMeals.firstWhere((meal) => meal.id == mealId),
         );
       });
     }
@@ -81,16 +83,16 @@ class _MyAppState extends State<MyApp> {
             brightness: Brightness.light,
             error: Colors.red,
             onError: Colors.white),
-        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-            bodyLarge: TextStyle(
+            bodyLarge: const TextStyle(
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
-            bodyMedium: TextStyle(
+            bodyMedium: const TextStyle(
               color: Color.fromRGBO(20, 51, 51, 1),
             ),
-            titleMedium: TextStyle(
+            titleMedium: const TextStyle(
               fontSize: 20,
               fontFamily: 'RobotoCondensed',
               fontWeight: FontWeight.bold,
@@ -108,7 +110,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
-          builder: (ctx) => CategoriesScreen(),
+          builder: (ctx) => const CategoriesScreen(),
         );
       },
     );
