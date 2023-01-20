@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/pages/second_screen.dart';
 
 import '../widgets/note_card.dart';
 
@@ -17,6 +18,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Notes'),
+        actions: [
+          IconButton(
+            onPressed: navigateToScreen,
+            icon: const Icon(Icons.login),
+          )
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -44,5 +51,10 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void navigateToScreen() {
+    //TODO Zu SecondScreen navigieren
+    // Navigator.of(context).push(...)
   }
 }
